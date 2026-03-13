@@ -2,6 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide Icons
     lucide.createIcons();
 
+    // --- Custom Mouse Follower ---
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor';
+    const follower = document.createElement('div');
+    follower.className = 'cursor-follower';
+    document.body.appendChild(cursor);
+    document.body.appendChild(follower);
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        follower.style.transform = `translate3d(${e.clientX - 15}px, ${e.clientY - 15}px, 0)`;
+    });
+
     // --- Theme Toggle Logic ---
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
@@ -17,6 +30,34 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     });
 
+    // --- Navbar Scroll Effect ---
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // --- 3D Tilt Effect for Hero Image ---
+    const heroFrame = document.querySelector('.hero-image-frame');
+    const heroImg = document.querySelector('.hero-img-main');
+
+    if (heroFrame && heroImg) {
+        heroFrame.addEventListener('mousemove', (e) => {
+            const { left, top, width, height } = heroFrame.getBoundingClientRect();
+            const x = (e.clientX - left) / width - 0.5;
+            const y = (e.clientY - top) / height - 0.5;
+            
+            heroImg.style.transform = `rotateY(${x * 20}deg) rotateX(${y * -20}deg) scale(1.05)`;
+        });
+
+        heroFrame.addEventListener('mouseleave', () => {
+            heroImg.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+        });
+    }
+
     // --- Side Menu Logic ---
     const burgerMenu = document.getElementById('burger-menu');
     const closeMenu = document.getElementById('close-menu');
@@ -30,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.toggle('no-scroll');
     };
 
-    burgerMenu.addEventListener('click', toggleMenu);
-    closeMenu.addEventListener('click', toggleMenu);
-    navOverlay.addEventListener('click', toggleMenu);
+    if (burgerMenu) burgerMenu.addEventListener('click', toggleMenu);
+    if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
+    if (navOverlay) navOverlay.addEventListener('click', toggleMenu);
 
     navLinksList.forEach(link => {
         link.addEventListener('click', () => {
@@ -79,9 +120,4 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
-
-    // --- Hero Animation ---
-    document.querySelectorAll('.hero .reveal').forEach((el, index) => {
-        setTimeout(() => el.classList.add('active'), index * 200);
-    });
 });

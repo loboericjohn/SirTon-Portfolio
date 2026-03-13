@@ -8,7 +8,7 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -19,52 +19,64 @@
                 <img src="images/boston-logo-Dmode.png" alt="Boston Logo" class="logo-img logo-dark">
                 <img src="images/boston-logo.png" alt="Boston Logo" class="logo-img logo-light">
             </div>
-            <div class="nav-actions">
-                <div id="theme-toggle" class="theme-toggle">
-                    <i data-lucide="moon" class="moon-icon"></i>
-                    <i data-lucide="sun" class="sun-icon"></i>
-                </div>
-                <div class="burger-menu" id="burger-menu">
-                    <i data-lucide="menu"></i>
-                </div>
-            </div>
-            
-            <!-- Side Navigation Menu -->
-            <div class="side-nav" id="side-nav">
-                <div class="side-nav-header">
-                    <div class="close-menu" id="close-menu">
-                        <i data-lucide="x"></i>
-                    </div>
-                </div>
+
+            <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#ventures">Ventures</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#awards">Awards</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+
+                <div class="nav-actions">
+                    <div id="theme-toggle" class="theme-toggle">
+                        <i data-lucide="moon" class="moon-icon"></i>
+                        <i data-lucide="sun" class="sun-icon"></i>
+                    </div>
+                </div>
             </div>
-            <div class="nav-overlay" id="nav-overlay"></div>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
+            <div class="bg-blob"></div>
             <div class="container hero-layout">
                 <div class="hero-content">
                     <h1 class="reveal">Anthony Leuterio</h1>
-                    <p class="subtitle reveal">Founder · Speaker · Influencer</p>
-                    <p class="mission reveal">The president and founder of several companies under the Leuterio Realty & Brokerage Group has made real estate in the Philippines more prominent and much attractive to buyers.</p>
+                    <p class="subtitle reveal">Visionary Founder & CEO</p>
+                    <p class="mission reveal">Building the future of Global Real Estate through innovation, leadership, and digital transformation.</p>
+                    <div class="hero-btns reveal">
+                        <a href="#contact" class="btn-primary">Get In Touch</a>
+                    </div>
                 </div>
                 <div class="hero-image-frame reveal">
-                    <img src="images/Sirton.png" alt="Anthony Leuterio" class="hero-img-main">
+                    <div class="glow-ring"></div>
+                    <img src="images/Sirton-Dmode.png" alt="Anthony Leuterio" class="hero-img-main hero-dark">
+                    <img src="images/Sirton.png" alt="Anthony Leuterio" class="hero-img-main hero-light">
                 </div>
-                <div class="scroll-indicator reveal">
-                    <span>Scroll</span>
-                    <i data-lucide="arrow-down"></i>
+
+                <!-- Move Stat Badges outside to prevent clipping -->
+                <dimov class="hero-stats-container reveal">
+                    <div class="stat-badge badge-1">
+                        <span>15+</span>
+                        <small>Companies Founded</small>
+                    </div>
+                    <div class="stat-badge badge-2">
+                        <span>20,000+</span>
+                        <small>Active Agents</small>
+                    </div>
+                    <div class="stat-badge badge-3">
+                        <span>#1</span>
+                        <small>Broker in PH</small>
+                    </div>
                 </div>
+            </div>
+            <div class="scroll-indicator reveal">
+                <span>Scroll</span>
+                <i data-lucide="arrow-down"></i>
             </div>
         </section>
 
@@ -73,19 +85,16 @@
             <div class="container">
                 <h2 class="section-title reveal">Companies & Ventures</h2>
                 <div class="grid-3 reveal">
-                    <div class="card venture-card">
+                    <div class="card venture-card leuterio-card">
                         <h3>Leuterio Realty</h3>
-                        <p>Leading the way in real estate brokerage and consultancy services.</p>
                         <a href="#" class="btn-text">Learn More <i data-lucide="arrow-right"></i></a>
                     </div>
-                    <div class="card venture-card">
+                    <div class="card venture-card fh-card">
                         <h3>Filipino Homes</h3>
-                        <p>The largest real estate network in the Philippines, empowering agents and home seekers.</p>
                         <a href="#" class="btn-text">Learn More <i data-lucide="arrow-right"></i></a>
                     </div>
-                    <div class="card venture-card">
+                    <div class="card venture-card rent-card">
                         <h3>Rent.ph</h3>
-                        <p>A premier platform for property rentals, making search easier for everyone.</p>
                         <a href="#" class="btn-text">Learn More <i data-lucide="arrow-right"></i></a>
                     </div>
                 </div>
