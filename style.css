@@ -302,18 +302,12 @@ body.light-mode .moon-icon { display: none; }
     height: 100%;
     object-fit: cover;
     object-position: center 10%;
-    display: none;
     transition: transform 0.1s ease-out;
 }
 
 .hero-img-main:hover {
     transform: scale(1.1);
 }
-
-.hero-dark { display: block; }
-.hero-light { display: none; }
-body.light-mode .hero-dark { display: none; }
-body.light-mode .hero-light { display: block; }
 
 .glow-ring {
     position: absolute;
