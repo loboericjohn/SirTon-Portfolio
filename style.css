@@ -124,6 +124,7 @@ body.no-scroll {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    gap: 0.2rem;
 }
 
 .logo-img {
@@ -131,6 +132,14 @@ body.no-scroll {
     width: auto;
     object-fit: contain;
     transition: var(--transition);
+}
+
+.antleu-logo {
+    margin-left: -1.0rem;
+}
+
+.boston-logo {
+    height: 80px;
 }
 
 .logo-light { display: none; }
