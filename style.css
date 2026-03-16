@@ -89,7 +89,7 @@ body.no-scroll {
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 6%;
+    padding: 0 8% 0 4%;
 }
 
 /* Navbar */
@@ -128,7 +128,7 @@ body.no-scroll {
 }
 
 .logo-img {
-    height: 60px;
+    height: 75px;
     width: auto;
     object-fit: contain;
     transition: var(--transition);
@@ -136,10 +136,6 @@ body.no-scroll {
 
 .antleu-logo {
     margin-left: -1.0rem;
-}
-
-.boston-logo {
-    height: 80px;
 }
 
 .logo-light { display: none; }
@@ -169,6 +165,14 @@ body.light-mode .logo-dark { display: none; }
     letter-spacing: 1px;
     transition: var(--transition);
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links a i {
+    width: 16px;
+    height: 16px;
 }
 
 .nav-links a::after {
