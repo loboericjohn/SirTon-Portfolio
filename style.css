@@ -374,8 +374,8 @@ body.light-mode .stat-badge {
 .stat-badge small { font-size: 0.7rem; color: var(--accent-color); text-transform: uppercase; white-space: nowrap; }
 
 .badge-1 { top: 5%; right: 5%; }
-.badge-2 { bottom: 40%; left: -25%; animation-delay: 1s; }
-.badge-3 { top: 55%; right: 5%; animation-delay: 2s; }
+.badge-3 { bottom: 10%; left: 52%; animation-delay: 1s; }
+.badge-2 { top: 40%; left: -35%; animation-delay: 2s; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -398,7 +398,16 @@ body.light-mode .stat-badge {
 
 /* Sections Common */
 .section { padding: 160px 0; }
-.section-title { font-size: 3.5rem; font-weight: 900; text-align: center; margin-bottom: 6rem; letter-spacing: -2px; }
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 6rem;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, var(--text-light) 30%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
