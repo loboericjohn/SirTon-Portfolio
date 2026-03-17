@@ -146,7 +146,7 @@ body.light-mode .logo-dark { display: none; }
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 /* Horizontal Nav Links */
@@ -154,6 +154,7 @@ body.light-mode .logo-dark { display: none; }
     display: flex;
     list-style: none;
     gap: 3rem;
+    margin-left: 14rem;
 }
 
 .nav-links a {
@@ -211,6 +212,7 @@ body.light-mode .logo-dark { display: none; }
     border: 1px solid var(--border-color);
     transition: var(--transition);
     color: var(--primary-color);
+    margin-left: 0rem;
 }
 
 .theme-toggle:hover {
