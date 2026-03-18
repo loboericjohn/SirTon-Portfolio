@@ -392,9 +392,17 @@ body.light-mode .stat-badge {
     align-items: center;
     opacity: 0.5;
     animation: bounce 2s infinite;
+    transition: opacity 0.1s ease; /* Very fast transition */
 }
 
 @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); } 40% { transform: translateY(-10px) translateX(-50%); } }
+
+.scroll-indicator.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: none; /* Instant hide */
+}
 
 /* About Section */
 .about.section {
