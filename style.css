@@ -584,12 +584,20 @@ body.light-mode .venture-card.rent-card {
     background-image: url('images/coach-ton2.jpg') !important; 
 }
 
+.coach-card-2 img {
+    object-position: 25% center !important;
+}
+
 .coach-card-2 { 
     background: var(--card-bg);
 }
 
 .coach-card-3 { 
     background: var(--card-bg);
+}
+
+.coach-card-3 img {
+    object-position: 30% 10% !important;
 }
 
 .venture-card:hover {
