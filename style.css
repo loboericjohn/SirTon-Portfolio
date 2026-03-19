@@ -552,10 +552,49 @@ body.light-mode .venture-card.rent-card {
 }
 
 .staggered-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    overflow-x: auto;
     gap: 3rem;
-    padding: 2rem 0;
+    padding: 4rem 2rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.staggered-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for a cleaner look */
+}
+
+.venture-card {
+    position: relative;
+    height: 600px;
+    min-width: 450px; /* Fixed width for each card */
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.coach-card-1 { 
+    background-image: url('images/coach-ton2.jpg') !important; 
+}
+
+.coach-card-2 { 
+    background: var(--card-bg);
+}
+
+.coach-card-3 { 
+    background: var(--card-bg);
+}
+
+.venture-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(227, 24, 55, 0.3);
 }
 
 .card-bg-img {
@@ -569,46 +608,6 @@ body.light-mode .venture-card.rent-card {
     transition: var(--transition);
 }
 
-.venture-card:hover .card-bg-img {
-    transform: scale(1.05);
-}
-
-.coach-card-1 { 
-    grid-column: 1 / -1; /* Spans both columns */
-    height: 650px !important;
-}
-
-.coach-card-1 .card-bg-img {
-    object-position: center 20%;
-}
-
-.coach-card-2 { 
-    background: var(--card-bg);
-}
-
-.coach-card-3 { 
-    background: var(--card-bg);
-}
-
-.venture-card {
-    position: relative;
-    height: 550px;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    background-size: cover;
-    background-position: center;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-.venture-card:hover {
-    transform: translateY(-15px) scale(1.01);
-    box-shadow: 0 40px 80px rgba(227, 24, 55, 0.3);
-}
-
 .card-content {
     position: relative;
     z-index: 2;
@@ -617,10 +616,6 @@ body.light-mode .venture-card.rent-card {
     background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
     color: white;
     text-align: left;
-}
-
-.coach-card-1 .card-content {
-    max-width: 600px;
 }
 
 .venture-card h3 {
