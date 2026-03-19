@@ -580,8 +580,10 @@ body.light-mode .venture-card.rent-card {
     transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.coach-card-1 { 
-    background-image: url('images/coach-ton2.jpg') !important; 
+.coach-card-1 .card-bg-img {
+    filter: brightness(1.1) contrast(1.1);
+    object-position: center 0%;
+    transform: scale(1.1) translateY(-5%);
 }
 
 .coach-card-2 img {
@@ -616,6 +618,21 @@ body.light-mode .venture-card.rent-card {
     transition: var(--transition);
 }
 
+.top-tag {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 10 !important;
+    background: var(--accent-color) !important;
+    color: white !important;
+    padding: 0.6rem 1.8rem;
+    border-radius: 100px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
 .card-content {
     position: absolute;
     bottom: 0;
@@ -626,6 +643,18 @@ body.light-mode .venture-card.rent-card {
     background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
     color: white;
     text-align: left;
+}
+
+.card-content-low {
+    padding-bottom: 3rem !important; /* Original padding */
+}
+
+.text-group-low {
+    transform: translateY(2rem);
+}
+
+.coach-card-1 h3 {
+    margin-top: 10rem;
 }
 
 .venture-card h3 {
