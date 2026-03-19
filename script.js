@@ -67,12 +67,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Mobile Menu Toggle Logic ---
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    const toggleMobileMenu = () => {
+        navLinks.classList.toggle('active');
+        body.classList.toggle('no-scroll');
+        
+        // Change icon based on menu state
+        const icon = mobileMenuToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.setAttribute('data-lucide', 'x');
+        } else {
+            icon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons();
+    };
+
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    }
+
+    // Close mobile menu when clicking on a link
+    const navLinksList = document.querySelectorAll('.nav-links a');
+    navLinksList.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+    });
+
     // --- Side Menu Logic ---
     const burgerMenu = document.getElementById('burger-menu');
     const closeMenu = document.getElementById('close-menu');
     const sideNav = document.getElementById('side-nav');
     const navOverlay = document.getElementById('nav-overlay');
-    const navLinksList = document.querySelectorAll('.nav-links a');
 
     const toggleMenu = () => {
         sideNav.classList.toggle('active');
@@ -83,14 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (burgerMenu) burgerMenu.addEventListener('click', toggleMenu);
     if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
     if (navOverlay) navOverlay.addEventListener('click', toggleMenu);
-
-    navLinksList.forEach(link => {
-        link.addEventListener('click', () => {
-            if (sideNav.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    });
 
     // --- Scroll Reveal Animation ---
     const revealElements = document.querySelectorAll('.reveal');
