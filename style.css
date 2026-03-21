@@ -906,7 +906,7 @@ body.light-mode .venture-card.rent-card {
     
     /* Hero Section Mobile */
     .hero {
-        padding-top: 80px;
+        padding-top: 5px;
         min-height: 100vh;
     }
     
@@ -941,21 +941,34 @@ body.light-mode .venture-card.rent-card {
     }
     
     .hero-stats-container {
-        margin-top: 1.5rem;
-        gap: 0.8rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 280px;
+        pointer-events: none;
+        z-index: 20;
     }
     
     .stat-badge {
-        padding: 0.8rem 1.5rem;
-        min-width: 120px;
+        position: absolute;
+        padding: 0.5rem 0.8rem;
+        min-width: 80px;
+        font-size: 0.7rem;
+        pointer-events: auto;
+        animation: float 4s ease-in-out infinite;
     }
     
+    .badge-1 { top: 110%; left: 5%; }
+    .badge-3 { bottom: -90%; left: 32%; animation-delay: 1s; }
+    .badge-2 { top: 145%; left: -65%; animation-delay: 2s; }
+    
     .stat-badge span {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .stat-badge small {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
     }
     
     /* Section Titles Mobile */
@@ -1206,17 +1219,23 @@ body.light-mode .venture-card.rent-card {
         border-width: 3px;
     }
     
+    .hero-stats-container {
+        width: 220px;
+        height: 220px;
+    }
+    
     .stat-badge {
-        padding: 0.6rem 1rem;
-        min-width: 100px;
+        padding: 0.4rem 0.6rem;
+        min-width: 70px;
+        font-size: 0.6rem;
     }
     
     .stat-badge span {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .stat-badge small {
-        font-size: 0.5rem;
+        font-size: 0.4rem;
     }
     
     .section-title {
