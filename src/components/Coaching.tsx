@@ -93,7 +93,7 @@ export default function Coaching() {
                       <h3>{program.title}</h3>
                       <p>{program.description}</p>
                     </div>
-                    <Link href={program.link || '#'} className="btn-text">
+                    <Link href={program.link || `/coaching/${program.id}`} className="btn-text">
                       Explore Program <ArrowRight size={18} />
                     </Link>
                   </div>

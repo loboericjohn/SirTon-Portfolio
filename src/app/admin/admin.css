@@ -1,16 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap');
 
+/* ---------- TOKENS ---------- */
 :root {
-    --bg: #050505;
-    --card: #111111;
-    --border: #222222;
-    --gold: #c9a84c;
-    --gray: #888888;
-    --white: #ffffff;
-    --bg3: #1a1a1a;
+    --bg: #060504;
+    --bg2: #0d0b08;
+    --bg3: #15120d;
+    --gold: #C9A84C;
+    --gold2: #A07D2E;
+    --gold-light: #E8D48B;
+    --white: #F5F0E8;
+    --gray: #8A8070;
+    --dim: #504A40;
+    --card: rgba(255,255,255,0.03);
+    --border: rgba(201,168,76,0.12);
     --sans: 'Sora', sans-serif;
     --serif: 'DM Serif Display', serif;
-    --side-pad: 24px;
+    --ease: cubic-bezier(.4,0,.2,1);
+    --spring: cubic-bezier(.34,1.56,.64,1);
+    --content-max: 1400px;
+    --side-pad: clamp(24px, 5vw, 80px);
 }
 
 /* ========== ADMIN STYLING SPECIFICS ========== */
@@ -18,11 +26,20 @@ body {
     background: var(--bg);
     color: var(--white);
     font-family: var(--sans);
+    margin: 0;
+    padding: 0;
 }
+
+.overline { display: block; font-size: 11px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.text-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: all .3s; }
+.text-link:hover { gap: 12px; padding-bottom: 4px; }
+.big-btn { display: inline-block; padding: 18px 48px; border-radius: 99px; border: 2px solid var(--gold); font-size: 15px; font-weight: 600; letter-spacing: 1px; color: var(--gold); transition: all .4s var(--ease); margin-bottom: 28px; }
+.big-btn:hover { background: var(--gold); color: #fff; transform: scale(1.03); box-shadow: 0 0 40px rgba(201,168,76,.3); }
+
 
 .admin-container {
     min-height: 100vh;
-    max-width: 1000px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: clamp(60px, 8vw, 100px) var(--side-pad);
     display: flex;
@@ -54,6 +71,36 @@ body {
     pointer-events:none;
 }
 
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.login-form input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(201, 168, 76, 0.35); /* Much more visible border */
+    border-radius: 12px;
+    padding: 18px 24px;
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.login-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Stronger placeholder */
+}
+
+.login-form input:focus {
+    border-color: var(--gold);
+    background: rgba(201, 168, 76, 0.08);
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.2);
+}
+
 .dash-header {
     display: flex;
     justify-content: space-between;
@@ -65,7 +112,7 @@ body {
 
 .tabs {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 12px;
     margin-bottom: 32px;
 }
@@ -87,7 +134,6 @@ body {
     gap: 8px;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .tab-btn::before {
@@ -138,7 +184,6 @@ body {
     font-family: var(--serif);
     font-size: 28px;
     margin-bottom: 8px;
-    font-weight: 400;
 }
 
 input[type="file"] {
@@ -156,56 +201,6 @@ input[type="file"]::-webkit-file-upload-button {
     cursor: pointer;
     transition: all 0.3s;
 }
-
-/* Connect Form specific generic inputs */
-.connect-form input:not([type="file"]), .connect-form textarea {
-    width: 100%;
-    background: rgba(0,0,0,0.3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    color: var(--white);
-    font-family: var(--sans);
-    margin-bottom: 16px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-.connect-form input:focus, .connect-form textarea:focus {
-    border-color: var(--gold);
-}
-
-.form-row {
-    display: flex;
-    gap: 16px;
-}
-.form-row > * {
-    flex: 1;
-}
-.big-btn {
-    background: var(--gold);
-    color: var(--bg);
-    padding: 16px 24px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-family: var(--sans);
-    width: 100%;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s;
-}
-.big-btn:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-}
-
-.overline {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--gold);
-}
-
 /* --- Manage List Styles --- */
 .manage-section {
     margin-top: 60px;
@@ -296,7 +291,6 @@ input[type="file"]::-webkit-file-upload-button {
     background: transparent;
     color: var(--gray);
     transition: all 0.3s;
-    cursor: pointer;
 }
 
 .action-btn.delete:hover {
@@ -372,11 +366,6 @@ select {
     color: var(--white);
     background: var(--card);
     cursor: pointer;
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    outline: none;
 }
 
 select option {

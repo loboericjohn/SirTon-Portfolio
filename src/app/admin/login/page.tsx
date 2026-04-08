@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
 import '../admin.css'; // Link the provided admin.css
@@ -11,6 +11,14 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
+
+  // On mount, fully clear any bad state / stuck refresh tokens from local storage
+  useEffect(() => {
+    const clearBadSession = async () => {
+      await supabase.auth.signOut().catch(() => {});
+    };
+    clearBadSession();
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,9 +45,9 @@ export default function AdminLogin() {
     <div id="auth-section" className="admin-container">
       <div className="login-box">
         <h2 style={{ marginBottom: '24px', textAlign: 'center', fontFamily: 'var(--serif)', fontWeight: 400, fontSize: '32px' }}>Admin Access</h2>
-        <form id="loginForm" onSubmit={handleLogin} className="connect-form" style={{ maxWidth: '400px', width: '100%', margin: '0 auto' }}>
+        <form id="loginForm" onSubmit={handleLogin} className="login-form">
           <input 
-            type="email" 
+            type="email"  
             id="loginEmail" 
             placeholder="Admin Email" 
             required

@@ -66,8 +66,19 @@ export default function Events() {
   }, []);
 
   return (
-    <section id="events" className="py-24 bg-[#0d0d0d] relative">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="events" className="py-24 bg-[#060504] relative overflow-hidden">
+      {/* Dark Architectural Background Overlay */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.15] pointer-events-none mix-blend-luminosity" 
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      />
+      
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <Reveal>
           <div className="text-center w-full mb-16 px-4 flex flex-col items-center">
             <h2 className="section-title !text-center !mx-auto inline-block">
