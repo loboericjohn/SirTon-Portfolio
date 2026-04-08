@@ -17,20 +17,23 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: '1',
     event_date: 'APR 24',
-    title: 'Success Summit 2024',
+    title: 'The Elite Broker Bootcamp',
     description: 'Learn the exact scripts and strategies the top 1% are using to dominate the current market.',
+    image_url: '/images/seminar.jpg'
   },
   {
     id: '2',
     event_date: 'MAY 15',
-    title: 'Marketing Mastermind',
+    title: 'PropTech & Innovation Webinar',
     description: 'A deep dive into social media, AI tools, and advanced advertising for real estate.',
+    image_url: '/images/coach-ton.jpg'
   },
   {
     id: '3',
     event_date: 'JUN 10',
-    title: 'Leadership Retreat',
-    description: 'An exclusive gathering for team leaders to master the art of building a high-performance culture.',
+    title: 'Anthony Leuterio Masterclass: Closing Enterprise Deals',
+    description: 'Master the high-stakes world of corporate real estate and institutional portfolio management.',
+    image_url: '/images/prop.jpg'
   },
 ];
 
@@ -101,7 +104,15 @@ export default function Events() {
                   {/* Image Container */}
                   <div className="w-full h-56 bg-white/5 relative overflow-hidden flex-shrink-0">
                     <img 
-                      src={event.image_url || '/images/Event.jpg'} 
+                      src={
+                        event.title === 'PropTech & Innovation Webinar' 
+                          ? '/images/coach-ton.jpg' 
+                          : event.title === 'Anthony Leuterio Masterclass: Closing Enterprise Deals'
+                          ? '/images/prop.jpg'
+                          : event.title === 'The Elite Broker Bootcamp'
+                          ? '/images/seminar.jpg'
+                          : (event.image_url || '/images/Event.jpg')
+                      } 
                       alt={event.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />

@@ -65,29 +65,6 @@ body.no-scroll {
     overflow: hidden;
 }
 
-/* Custom Cursor */
-.cursor {
-    width: 10px;
-    height: 10px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-.cursor-follower {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--accent-color);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transition: transform 0.15s ease;
-    opacity: 0.5;
-}
-
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
