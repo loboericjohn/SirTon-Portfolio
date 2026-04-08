@@ -38,8 +38,20 @@ export default function Education() {
 
   return (
     <section id="education" className="py-32 relative bg-[#060504] overflow-hidden border-t border-white/5">
+      {/* Cinematic Background Image Layer */}
+      <div 
+        className="absolute inset-0 z-0 opacity-20 pointer-events-none mix-blend-luminosity" 
+        style={{
+          backgroundImage: "url('/images/harvard.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          filter: 'blur(1px)'
+        }}
+      />
+      
       {/* Ambient background light */}
-      <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-gold/5 to-transparent blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-gold/5 to-transparent blur-3xl pointer-events-none z-[1]"></div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <Reveal>
