@@ -39,7 +39,7 @@ export default function Testimonials() {
         const { data, error } = await supabase
           .from('testimonials')
           .select('*')
-          .order('id', { ascending: false }); // Usually good to show newest first
+          .order('id', { ascending: false });
 
         if (error) {
           console.warn('Supabase Warning:', error);
@@ -83,10 +83,10 @@ export default function Testimonials() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 pt-4 max-w-6xl mx-auto">
             {testimonials.map((testi, index) => (
               <Reveal key={testi.id} delay={index * 0.1}>
-                <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 hover:bg-white/10 hover:border-gold/30 transition-all duration-300 shadow-xl group h-full">
+                <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 hover:bg-white/10 hover:border-gold/30 transition-all duration-300 shadow-xl group h-full">
                   
-                  {/* Portrait Visual */}
-                  <div className="w-28 h-28 flex-shrink-0 rounded-2xl overflow-hidden border border-white/10 group-hover:border-gold/50 shadow-lg bg-[#0d0b08] isolate">
+                  {/* Portrait Visual - Centered Vertically beside content */}
+                  <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-white/10 group-hover:border-gold/50 shadow-lg bg-[#0d0b08] isolate flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                     <img 
                       src={testi.author_image_url || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop'} 
                       alt={testi.author_name}
@@ -97,8 +97,8 @@ export default function Testimonials() {
                     />
                   </div>
 
-                  {/* Info */}
-                  <div className="flex flex-col text-center sm:text-left flex-grow">
+                  {/* Info - Centered Vertically */}
+                  <div className="flex flex-col text-center md:text-left flex-grow justify-center">
                     <h3 style={{ fontFamily: 'var(--serif)', fontSize: '24px', color: 'var(--white)', marginBottom: '4px', lineHeight: 1.2 }}>
                       {testi.author_name}
                     </h3>
